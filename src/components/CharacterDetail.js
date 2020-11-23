@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
   const selectedCharacter = props.characters
@@ -6,7 +7,7 @@ const CharacterDetail = (props) => {
     .map((character) => {
       return (
         <article key={character.id}>
-          <button>Volver</button>
+          <Link to="/">Volver</Link>
           <img
             src={character.image}
             alt={"Foto de " + character.name}
