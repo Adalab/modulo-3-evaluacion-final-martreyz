@@ -18,11 +18,21 @@ const CharacterList = (props) => {
         </li>
       );
     });
-  return <ul>{charactersToRender}</ul>;
+  if (charactersToRender.length !== 0) {
+    return <ul>{charactersToRender}</ul>;
+  } else {
+    return (
+      <p>
+        No hay ningún personaje que coincida con la palabra "{props.searchValue}
+        "
+      </p>
+    );
+  }
 };
 
 CharacterList.propTypes = {
   characters: PropTypes.array,
   searchValue: PropTypes.string,
 };
+
 export default CharacterList;
