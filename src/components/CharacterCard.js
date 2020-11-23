@@ -2,13 +2,11 @@ import PropTypes from "prop-types";
 
 const CharacterCard = (props) => {
   return (
-    <li key={props.id}>
-      <article>
-        <img src={props.image} alt={"Fotografía de " + props.name} />
-        <h2>{props.name}</h2>
-        <h3>{props.species}</h3>
-      </article>
-    </li>
+    <article>
+      <img src={props.image} alt={"Fotografía de " + props.name} />
+      <h2>{props.name}</h2>
+      <h3>{props.species}</h3>
+    </article>
   );
 };
 

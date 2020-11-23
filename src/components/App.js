@@ -1,10 +1,12 @@
 import "../stylesheets/App.css";
 import CharacterList from "./CharacterList";
+import Filters from "./Filters";
 import getInfoFromApi from "../services/apiCharacters";
 import { useEffect, useState } from "react";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   const getApiResults = () => {
     getInfoFromApi().then((data) => {
@@ -12,14 +14,27 @@ function App() {
     });
   };
 
+  const handleInputChange = (inputValue) => {
+    setSearchValue(inputValue);
+  };
+
   useEffect(() => {
     getApiResults();
   }, []);
 
   return (
-    <div>
-      <CharacterList characters={characters} />
-    </div>
+    <>
+      <header>
+        <h1>Rick y Morty</h1>
+      </header>
+      <main>
+        <Filters
+          searchValue={searchValue}
+          handleInputChange={handleInputChange}
+        />
+        <CharacterList searchValue={searchValue} characters={characters} />
+      </main>
+    </>
   );
 }
 
