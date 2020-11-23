@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 const Filters = (props) => {
@@ -23,5 +22,10 @@ const Filters = (props) => {
     </form>
   );
 };
-Filters.propTypes = {};
+
+Filters.propTypes = {
+  searchValue: PropTypes.string,
+  handleInputChange: PropTypes.func,
+};
+
 export default Filters;
