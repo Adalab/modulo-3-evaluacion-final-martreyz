@@ -6,6 +6,12 @@ const Filters = (props) => {
     props.handleInputChange(inputValue);
   };
 
+  const handleInputEnter = (ev) => {
+    if (ev.keyCode === "13") {
+      ev.preventDefault();
+    }
+  };
+
   return (
     <form>
       <label htmlFor="userSearch">
@@ -14,6 +20,7 @@ const Filters = (props) => {
       <input
         placeholder="Ej. Rick Sanchez"
         onChange={handleInputChange}
+        onKeyPress={handleInputEnter}
         id="userSearch"
         name="userSearch"
         type="text"

@@ -6,6 +6,7 @@ const CharacterDetail = (props) => {
     .map((character) => {
       return (
         <article key={character.id}>
+          <button>Volver</button>
           <img
             src={character.image}
             alt={"Foto de " + character.name}
