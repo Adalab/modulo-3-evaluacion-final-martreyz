@@ -1,5 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import alive from "../images/mortyvivo.png";
+import dead from "../images/mortymuerto.png";
+import human from "../images/humana.png";
+import alien from "../images/alien.png";
 
 const CharacterDetail = (props) => {
   const selectedCharacter = props.characters
@@ -17,6 +21,19 @@ const CharacterDetail = (props) => {
           <ul>
             <li>
               Especie: {character.species === "Human" ? "Humana" : "Alien"}
+              <img
+                title={
+                  character.species === "Human"
+                    ? "El personaje es humano"
+                    : "El personaje es un alien"
+                }
+                alt={
+                  character.species === "Human"
+                    ? "El personaje es humano"
+                    : "El personaje es un alien"
+                }
+                src={character.species === "Human" ? human : alien}
+              />
             </li>
             <li>
               Planeta de origen:
@@ -36,6 +53,23 @@ const CharacterDetail = (props) => {
                 : character.status === "Dead"
                 ? "Muerto"
                 : "Desconocido"}
+              <img
+                title={
+                  character.status === "Alive"
+                    ? "El personaje está vivo"
+                    : character.status === "Dead"
+                    ? "El personaje está muerto"
+                    : "Se desconoce si está vivo o muerto"
+                }
+                alt={
+                  character.status === "Alive"
+                    ? "El personaje está vivo"
+                    : character.status === "Dead"
+                    ? "El personaje está muerto"
+                    : "Se desconoce si está vivo o muerto"
+                }
+                src={character.status === "Alive" ? alive : dead}
+              />
             </li>
           </ul>
         </article>
