@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
+import "../stylesheets/CharacterList.scss";
 
 const CharacterList = (props) => {
   const charactersToRender = props.characters
@@ -8,7 +9,7 @@ const CharacterList = (props) => {
     )
     .map((character) => {
       return (
-        <li key={character.id}>
+        <li className="main__list-item" key={character.id}>
           <CharacterCard
             name={character.name}
             image={character.image}
@@ -19,7 +20,7 @@ const CharacterList = (props) => {
       );
     });
   if (charactersToRender.length !== 0) {
-    return <ul>{charactersToRender}</ul>;
+    return <ul className="main__list">{charactersToRender}</ul>;
   } else {
     return (
       <p>
