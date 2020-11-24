@@ -11,7 +11,7 @@ const CharacterCard = (props) => {
           title={"Fotografía de " + props.name}
         />
         <h2>{props.name}</h2>
-        <h3>{props.species}</h3>
+        <h3>Especie: {props.species === "Human" ? "Humana" : "Alien"}</h3>
       </article>
     </Link>
   );

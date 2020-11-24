@@ -15,10 +15,28 @@ const CharacterDetail = (props) => {
           />
           <h2>{character.name}</h2>
           <ul>
-            <li>Especie: {character.species}</li>
-            <li>Planeta de origen: {character.origin.name}</li>
+            <li>
+              Especie: {character.species === "Human" ? "Humana" : "Alien"}
+            </li>
+            <li>
+              Planeta de origen:{" "}
+              {character.origin.name === "Earth (Replacement Dimension)"
+                ? "Tierra (Dimensión de reemplazo)"
+                : character.origin.name === "Earth (C-137)"
+                ? "Tierra (Dimensión C-137)"
+                : character.origin.name === "Abadango"
+                ? "Abadango"
+                : "Origen desconocido"}
+            </li>
             <li>Número de episodios: {character.episode.length}</li>
-            <li>Estado del personaje: {character.status}</li>
+            <li>
+              Estado del personaje:{" "}
+              {character.status === "Alive"
+                ? "Vivo"
+                : character.status === "Dead"
+                ? "Muerto"
+                : "Desconocido"}
+            </li>
           </ul>
         </article>
       );
