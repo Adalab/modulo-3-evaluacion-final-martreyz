@@ -9,12 +9,13 @@
     background-color: #f8c2f3;
     height: auto;
     border-radius: 10px;
-    margin: 50px 0px;
+    margin: 50px 0px 50px 0px;
     padding: 10px;
     width: 90%;
     position: relative;
     @media all and (min-width: 768px) {
       width: 50%;
+      margin: 0px 0px 50px 0px;
     }
 
     &-label {

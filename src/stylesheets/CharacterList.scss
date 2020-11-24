@@ -14,6 +14,10 @@
     max-width: 90%;
     width: 250px;
     justify-self: center;
+    transition: ease 1s all;
+    &:hover {
+      transform: scale(1.15);
+    }
   }
 }
 

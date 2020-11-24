@@ -29,6 +29,10 @@ function App() {
     setSearchValue(inputValue);
   };
 
+  const handleBackClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     setLoading(true);
     getApiResults();
@@ -36,7 +40,7 @@ function App() {
 
   return (
     <>
-      <header className="header">
+      <header id="header" className="header">
         <img
           className="header__logo"
           title="Logo Rick y Morty"
@@ -52,7 +56,12 @@ function App() {
               handleInputChange={handleInputChange}
             />
             {loading ? (
-              <img className="main__loading" src={loadingGif} title="Loading" alt="Loading" />
+              <img
+                className="main__loading"
+                src={loadingGif}
+                title="Loading"
+                alt="Loading"
+              />
             ) : (
               ""
             )}
@@ -67,6 +76,9 @@ function App() {
                 characters={characters}
               />
             )}
+            <button onClick={handleBackClick} className="main__backUpwards">
+              Inicio de la página
+            </button>
           </Route>
           <Route
             path="/character/:id"
