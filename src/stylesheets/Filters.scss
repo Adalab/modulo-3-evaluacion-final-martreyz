@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8c2f3;
+    width: 50%;
+    height: 100px;
+    border-radius: 10px;
+    margin: 50px 0px;
+    padding: 10px;
+    &-label {
+      font-size: 30px;
+      text-align: center;
+    }
+    &-input {
+      width: 90%;
+      height: 30px;
+      margin: 10px;
+      padding: 0px 5px;
+      outline-color: #028b7b;
+      border: 2px dotted #028b7b;
+      color: #028b7b;
+      background-color: #fefd7c;
+    }
+  }
+}

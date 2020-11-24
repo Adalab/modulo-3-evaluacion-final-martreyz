@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../stylesheets/Filters.scss";
 
 const Filters = (props) => {
   const handleInputChange = (ev) => {
@@ -13,11 +14,12 @@ const Filters = (props) => {
   };
 
   return (
-    <form>
-      <label htmlFor="userSearch">
+    <form className="main__form">
+      <label className="main__form-label" htmlFor="userSearch">
         Introduce el nombre del personaje a buscar:
       </label>
       <input
+        className="main__form-input"
         placeholder="Ej. Rick Sanchez"
         onChange={handleInputChange}
         onKeyPress={handleInputEnter}

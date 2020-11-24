@@ -1,8 +1,9 @@
-import "../stylesheets/App.css";
+import "../stylesheets/App.scss";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 import getInfoFromApi from "../services/apiCharacters";
+import logo from "../images/logo.png";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
@@ -26,10 +27,15 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>Rick y Morty</h1>
+      <header className="header">
+        <img
+          className="header__logo"
+          title="Logo Rick y Morty"
+          alt="Logo Rick y Morty"
+          src={logo}
+        />
       </header>
-      <main>
+      <main className="main">
         <Switch>
           <Route exact path="/">
             <Filters
