@@ -23,7 +23,7 @@ const CharacterList = (props) => {
     return <ul className="main__list">{charactersToRender}</ul>;
   } else {
     return (
-      <p>
+      <p className="main__errorMessage">
         No hay ningún personaje que coincida con la palabra "{props.searchValue}
         "
       </p>

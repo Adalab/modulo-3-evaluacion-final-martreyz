@@ -87,7 +87,23 @@ const CharacterDetail = (props) => {
         </article>
       );
     });
-  return selectedCharacter;
+  console.log(selectedCharacter);
+  return selectedCharacter.length !== 0 ? (
+    selectedCharacter
+  ) : (
+    <>
+      <p className="main__detail-errorMessage">
+        El personaje que buscas no existe
+      </p>
+      <Link
+        className="main__detail-errorMessageLink"
+        title="Volver a resultados"
+        to="/"
+      >
+        Ir al listado de personajes
+      </Link>
+    </>
+  );
 };
 
 CharacterDetail.propTypes = {
