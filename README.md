@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Módulo 3: Evaluación final en [Adalab](www.adalab.es)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El ejercicio consiste en desarrollar una página web con React, consistente en un listado de personajes de Rick and Morty que podemos filtrar por el nombre del personaje.
+Clickando en la tarjeta del personaje deseado podemos acceder a la tarjeta de detalle de éste con información más extendida.
 
-## Available Scripts
+### Componentes
 
-In the project directory, you can run:
+Para realizar el ejercicio se han utilizado cinco componentes:
 
-### `npm start`
+- App.js: Componente raíz, guarda en su estado toda la información de la app web. Asimismo, recibe por lifting información de acciones del usuario en la interfaz y opera con esta información.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- CharacterList.js: Componente secundario, se encarga de filtrar y mapear el array de resultados con la información de los personajes. Para renderizarlo utiliza la estructura del componente CharacterCard.js (BONUS): El listado aparece ordenado alfabéticamente, cuando la búsqueda no encuentra resultados se muestra un mensaje de error al usuario, añadido un preventDefault() para evitar el comportamiento por defecto del enter en el input.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- CharacterCard.js: Contiene la estructura de renderizado y recibe por props de CharacterList.js la información del array de personajes para renderizarse (nombre, dibujo del personaje y especie).
 
-### `npm test`
+- Filters.js: Contiene un formulario con un input de texto y otro de tipo botón. En el input de texto el usuario escribirá el nombre del personaje que desea consultar y los resultados mostrados se irán filtrando a medida que el usuario escriba. El input de botón cumple la función de limpiar el campo de búsqueda. (BONUS): La búsqueda se realiza sin distinguir entre mayúsculas y minúsculas, el formulario debe estar recubierto por una etiqueta form.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- CharacterDetail.js: Es el componente encargado de renderizar la tarjeta de detalle del personaje seleccionado. Utiliza react-dom-router y recibe por props el array de personajes y el id único diferenciador de cada personaje mediante match. Cuando el usuario hace click en una tarjeta, CharacterDetail.js recibirá el array de personajes y el id diferenciador del que se ha clickado para filtrar y renderizar la información. (BONUS): La URL es compartible y en caso de introducir una inexistente la página muestra un mensaje de error al usuario y un botón con el que se accede de nuevo a la página de resultados.
 
-### `npm run build`
+### Stylesheets
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se han creado cinco hojas de estilos utilizando SASS, correspondiendo con los cinco componentes anteriormente listados y conteniendo todos los estilos de éstos. Además, existe una hoja adicional index.scss que contiene los estilos de index.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La maquetación de este ejercicio es libre y para llevarla a cabo se ha tomado en consideración la paleta de colores y diseños generalmente utilizados en la serie.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(BONUS): En el CharacterDetail.js, se muestra la especie y el estado de un personaje por escrito y con iconos, se ha utilizado un sistema de grid para mostrar la lista de resultados de personajes, ejercicio responsive en mobile first, con breakpoint a tablet (768px) y desktop (1200px).
 
-### `npm run eject`
+### Services
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+La carpeta Services contiene al módulo encargado de realizar la petición a la API. Posteriormente este servicio es importado a App.js, donde se guardan en el estado estos resultados.
+Al fetch se le ha añadido un catch para mostrar un mensaje al usuario si ha habido algún problema con la carga de los resultados. Además, se le ha añadido un sistema de loading para los casos de conexión lenta.
