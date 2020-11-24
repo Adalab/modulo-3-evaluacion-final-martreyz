@@ -19,7 +19,7 @@ const CharacterDetail = (props) => {
               Especie: {character.species === "Human" ? "Humana" : "Alien"}
             </li>
             <li>
-              Planeta de origen:{" "}
+              Planeta de origen:
               {character.origin.name === "Earth (Replacement Dimension)"
                 ? "Tierra (Dimensión de reemplazo)"
                 : character.origin.name === "Earth (C-137)"
@@ -30,7 +30,7 @@ const CharacterDetail = (props) => {
             </li>
             <li>Número de episodios: {character.episode.length}</li>
             <li>
-              Estado del personaje:{" "}
+              Estado del personaje:
               {character.status === "Alive"
                 ? "Vivo"
                 : character.status === "Dead"
