@@ -87,7 +87,6 @@ const CharacterDetail = (props) => {
         </article>
       );
     });
-  console.log(selectedCharacter);
   return selectedCharacter.length !== 0 ? (
     selectedCharacter
   ) : (

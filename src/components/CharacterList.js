@@ -7,6 +7,15 @@ const CharacterList = (props) => {
     .filter((character) =>
       character.name.toUpperCase().includes(props.searchValue.toUpperCase())
     )
+    .sort((characterA, characterB) => {
+      if (characterA.name > characterB.name) {
+        return 1;
+      }
+      if (characterA.name < characterB.name) {
+        return -1;
+      }
+      return 0;
+    })
     .map((character) => {
       return (
         <li className="main__list-item" key={character.id}>
