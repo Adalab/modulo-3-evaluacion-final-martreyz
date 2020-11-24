@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../stylesheets/CharacterDetail.scss";
 import alive from "../images/mortyvivo.png";
 import dead from "../images/mortymuerto.png";
 import human from "../images/humana.png";
@@ -10,18 +11,26 @@ const CharacterDetail = (props) => {
     .filter((character) => character.id === parseInt(props.match.params.id))
     .map((character) => {
       return (
-        <article key={character.id}>
-          <Link to="/">Volver</Link>
+        <article className="main__detail" key={character.id}>
+          <Link
+            className="main__detail-link"
+            title="Volver a resultados"
+            to="/"
+          >
+            Volver
+          </Link>
           <img
+            className="main__detail-img"
             src={character.image}
             alt={"Foto de " + character.name}
-            title="Nombre"
+            title={"Foto de " + character.name}
           />
-          <h2>{character.name}</h2>
-          <ul>
-            <li>
-              Especie: {character.species === "Human" ? "Humana" : "Alien"}
+          <h2 className="main__detail-name">{character.name}</h2>
+          <ul className="main__detail-list">
+            <li className="main__detail-listItem">
+              Especie: {character.species === "Human" ? " Humana" : " Alien"}
               <img
+                className="detail-listItem-imgSpecie"
                 title={
                   character.species === "Human"
                     ? "El personaje es humano"
@@ -35,25 +44,28 @@ const CharacterDetail = (props) => {
                 src={character.species === "Human" ? human : alien}
               />
             </li>
-            <li>
+            <li className="main__detail-listItem">
               Planeta de origen:
               {character.origin.name === "Earth (Replacement Dimension)"
-                ? "Tierra (Dimensión de reemplazo)"
+                ? " Tierra (Dimensión de reemplazo)"
                 : character.origin.name === "Earth (C-137)"
-                ? "Tierra (Dimensión C-137)"
+                ? " Tierra (Dimensión C-137)"
                 : character.origin.name === "Abadango"
-                ? "Abadango"
-                : "Origen desconocido"}
+                ? " Abadango"
+                : " Origen desconocido"}
             </li>
-            <li>Número de episodios: {character.episode.length}</li>
-            <li>
+            <li className="main__detail-listItem">
+              Número de episodios: {character.episode.length}
+            </li>
+            <li className="main__detail-listItem">
               Estado del personaje:
               {character.status === "Alive"
-                ? "Vivo"
+                ? " Vivo"
                 : character.status === "Dead"
-                ? "Muerto"
-                : "Desconocido"}
+                ? " Muerto"
+                : " Desconocido"}
               <img
+                className="detail-listItem-imgStatus"
                 title={
                   character.status === "Alive"
                     ? "El personaje está vivo"

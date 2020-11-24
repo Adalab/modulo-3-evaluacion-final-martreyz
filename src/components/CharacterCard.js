@@ -4,7 +4,11 @@ import "../stylesheets/CharacterCard.scss";
 
 const CharacterCard = (props) => {
   return (
-    <Link className="main__list-link" to={"/character/" + props.id}>
+    <Link
+      title="Ir a detalle del personaje"
+      className="main__list-link"
+      to={"/character/" + props.id}
+    >
       <article className="main__list-article">
         <img
           className="main__list-articleImg"
