@@ -1,17 +1,21 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../stylesheets/CharacterCard.scss";
 
 const CharacterCard = (props) => {
   return (
-    <Link to={"/character/" + props.id}>
-      <article>
+    <Link className="main__list-link" to={"/character/" + props.id}>
+      <article className="main__list-article">
         <img
+          className="main__list-articleImg"
           src={props.image}
           alt={"Fotografía de " + props.name}
           title={"Fotografía de " + props.name}
         />
-        <h2>{props.name}</h2>
-        <h3>Especie: {props.species === "Human" ? "Humana" : "Alien"}</h3>
+        <h2 className="main__list-articleName">{props.name}</h2>
+        <h3 className="main__list-articleSpecie">
+          Especie: {props.species === "Human" ? "Humana" : "Alien"}
+        </h3>
       </article>
     </Link>
   );
