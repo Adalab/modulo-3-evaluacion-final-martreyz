@@ -12,6 +12,7 @@
     margin: 50px 0px;
     padding: 10px;
     width: 90%;
+    position: relative;
     @media all and (min-width: 768px) {
       width: 50%;
     }
@@ -32,6 +33,24 @@
       border: 2px dotted #028b7b;
       color: #028b7b;
       background-color: #fefd7c;
+    }
+    &-clean {
+      position: absolute;
+      right: 10%;
+      bottom: 18px;
+      background-color: transparent;
+      border: none;
+      font-size: 25px;
+      color: #028b7b;
+      outline: none;
+      transition: ease all 1s;
+      font-weight: bold;
+      @media all and (min-width: 1200px) {
+        right: 8%;
+      }
+      &:hover {
+        transform: scale(1.3);
+      }
     }
   }
 }

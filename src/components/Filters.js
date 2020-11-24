@@ -13,6 +13,11 @@ const Filters = (props) => {
     }
   };
 
+  const handleCleanClick = () => {
+    const inputValue = "";
+    props.handleInputChange(inputValue);
+  };
+
   return (
     <form className="main__form">
       <label className="main__form-label" htmlFor="userSearch">
@@ -27,6 +32,14 @@ const Filters = (props) => {
         name="userSearch"
         type="text"
         value={props.searchValue}
+      />
+      <input
+        className="main__form-clean"
+        type="button"
+        name="cleanSearch"
+        value="X"
+        title="Borrar búsqueda"
+        onClick={handleCleanClick}
       />
     </form>
   );
