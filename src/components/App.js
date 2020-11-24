@@ -4,17 +4,25 @@ import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
 import getInfoFromApi from "../services/apiCharacters";
 import logo from "../images/logo.png";
+import loadingGif from "../images/loading2.gif";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [apiError, setApiError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getApiResults = () => {
-    getInfoFromApi().then((data) => {
-      setCharacters(data.results);
-    });
+    getInfoFromApi()
+      .catch(() => setApiError(true))
+      .then((data) => {
+        if (data) {
+          setCharacters(data.results);
+        }
+        setLoading(false);
+      });
   };
 
   const handleInputChange = (inputValue) => {
@@ -22,6 +30,7 @@ function App() {
   };
 
   useEffect(() => {
+    setLoading(true);
     getApiResults();
   }, []);
 
@@ -42,7 +51,22 @@ function App() {
               searchValue={searchValue}
               handleInputChange={handleInputChange}
             />
-            <CharacterList searchValue={searchValue} characters={characters} />
+            {loading ? (
+              <img className="main__loading" src={loadingGif} title="Loading" alt="Loading" />
+            ) : (
+              ""
+            )}
+            {apiError ? (
+              <p className="main__apiError">
+                Lo sentimos, no se ha podido cargar la lista de personajes. Le
+                rogamos lo intente de nuevo más tarde.
+              </p>
+            ) : (
+              <CharacterList
+                searchValue={searchValue}
+                characters={characters}
+              />
+            )}
           </Route>
           <Route
             path="/character/:id"
