@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../stylesheets/Filters.scss";
 
 const Filters = (props) => {
   const handleInputChange = (ev) => {
@@ -12,12 +13,18 @@ const Filters = (props) => {
     }
   };
 
+  const handleCleanClick = () => {
+    const inputValue = "";
+    props.handleInputChange(inputValue);
+  };
+
   return (
-    <form>
-      <label htmlFor="userSearch">
+    <form className="main__form">
+      <label className="main__form-label" htmlFor="userSearch">
         Introduce el nombre del personaje a buscar:
       </label>
       <input
+        className="main__form-input"
         placeholder="Ej. Rick Sanchez"
         onChange={handleInputChange}
         onKeyPress={handleInputEnter}
@@ -25,6 +32,14 @@ const Filters = (props) => {
         name="userSearch"
         type="text"
         value={props.searchValue}
+      />
+      <input
+        className="main__form-clean"
+        type="button"
+        name="cleanSearch"
+        value="X"
+        title="Borrar búsqueda"
+        onClick={handleCleanClick}
       />
     </form>
   );

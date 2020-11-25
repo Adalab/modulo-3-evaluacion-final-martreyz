@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8c2f3;
+    height: auto;
+    border-radius: 10px;
+    margin: 50px 0px 50px 0px;
+    padding: 10px;
+    width: 90%;
+    position: relative;
+    @media all and (min-width: 768px) {
+      width: 50%;
+      margin: 0px 0px 50px 0px;
+    }
+
+    &-label {
+      font-size: 20px;
+      text-align: center;
+      @media all and (min-width: 768px) {
+        font-size: 30px;
+      }
+    }
+    &-input {
+      width: 90%;
+      height: 30px;
+      margin: 10px;
+      padding: 0px 5px;
+      outline-color: #028b7b;
+      border: 2px dotted #028b7b;
+      color: #028b7b;
+      background-color: #fefd7c;
+    }
+    &-clean {
+      position: absolute;
+      right: 10%;
+      bottom: 18px;
+      background-color: transparent;
+      border: none;
+      font-size: 25px;
+      color: #028b7b;
+      outline: none;
+      transition: ease all 1s;
+      font-weight: bold;
+      @media all and (min-width: 1200px) {
+        right: 8%;
+      }
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.main__list {
+  display: grid;
+  row-gap: 30px;
+  margin-bottom: 50px;
+  @media all and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media all and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    max-width: 90vw;
+  }
+  &-item {
+    max-width: 90%;
+    width: 250px;
+    justify-self: center;
+    transition: ease 1s all;
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.main__errorMessage {
+  color: #43b369;
+  font-weight: bold;
+  background-color: #fefd7c;
+  padding: 5px;
+  border-radius: 10px;
+}

@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
 import CharacterCard from "./CharacterCard";
+import "../stylesheets/CharacterList.scss";
 
 const CharacterList = (props) => {
   const charactersToRender = props.characters
     .filter((character) =>
       character.name.toUpperCase().includes(props.searchValue.toUpperCase())
     )
+    .sort((characterA, characterB) => {
+      if (characterA.name > characterB.name) {
+        return 1;
+      }
+      if (characterA.name < characterB.name) {
+        return -1;
+      }
+      return 0;
+    })
     .map((character) => {
       return (
-        <li key={character.id}>
+        <li className="main__list-item" key={character.id}>
           <CharacterCard
             name={character.name}
             image={character.image}
@@ -19,10 +29,10 @@ const CharacterList = (props) => {
       );
     });
   if (charactersToRender.length !== 0) {
-    return <ul>{charactersToRender}</ul>;
+    return <ul className="main__list">{charactersToRender}</ul>;
   } else {
     return (
-      <p>
+      <p className="main__errorMessage">
         No hay ningún personaje que coincida con la palabra "{props.searchValue}
         "
       </p>
