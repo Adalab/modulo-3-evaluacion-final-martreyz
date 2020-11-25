@@ -39,3 +39,9 @@ Al fetch se le ha añadido un catch para mostrar un mensaje al usuario si ha hab
 Página principal:
 
 ![Página principal](./src/images/readme1.JPG)
+
+Página de detalle de personaje:
+
+![Página de detalle de personaje](./src/images/readme2.JPG)
+
+@martreyz ![Cat Logo](./src/images/cat-solid.svg)
