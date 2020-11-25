@@ -77,4 +77,10 @@ Página de detalle de personaje:
 
 ![Página de detalle de personaje](./src/images/readme2.JPG)
 
+## Arrancar el proyecto
+
+- npm install: Para instalar el proyecto
+- npm start: Para arrancar el proyecto y probarlo en desarrollo a través de la URL '//localhost:3000/#/'
+- npm run build y mv build docs: Para publicar el proyecto a producción
+
 @martreyz 🐈
