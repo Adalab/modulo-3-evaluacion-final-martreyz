@@ -7,9 +7,42 @@ Clickando en la tarjeta del personaje deseado podemos acceder a la tarjeta de de
 
 ## Código
 
+### Estructura
+
+```
+src
+├── components
+│   ├── ApiError.js -> Gestiona el error de la Api en caso de haberlo
+│   ├── App.js -> Desarrollado en componentes
+│   ├── CharacterCard.js -> Desarrollado en componentes
+│   ├── CharacterDetail.js -> Desarrollado en componentes
+│   ├── CharacterList.js -> Desarrollado en componentes
+│   ├── Filters.js -> Desarrollado en componentes
+│   ├── Footer.js -> Contenido del Footer
+│   ├── Header.js -> Contenido del Header
+│   ├── Loader.js -> Muestra el loader mientras el fetch se carga
+│   └── UpButton.js -> Redirige al inicio de la página
+│
+├── images
+├── services
+│   └── apiCharacter.js
+├── styleSheets
+│   ├── ApiError.scss
+│   └── CharacterCard.scss
+│   └── CharacterDetail.scss
+│   └── CharacterList.scss
+│   └── Filters.scss
+│   └── Footer.scss
+│   └── Header.scss
+│   └── index.scss
+│   └── Loader.scss
+│   └── UpButton.scss
+└── index.js
+```
+
 ### Componentes
 
-Para realizar el ejercicio se han utilizado cinco componentes:
+A continuación se desarrollan los cinco componentes más complejos:
 
 - App.js: Componente raíz, guarda en su estado toda la información de la app web. Asimismo, recibe por lifting información de acciones del usuario en la interfaz y opera con esta información.
 
@@ -23,7 +56,7 @@ Para realizar el ejercicio se han utilizado cinco componentes:
 
 ### Stylesheets
 
-Se han creado cinco hojas de estilos utilizando SASS, correspondiendo con los cinco componentes anteriormente listados y conteniendo todos los estilos de éstos. Además, existe una hoja adicional index.scss que contiene los estilos de index.js
+Se han creado diez hojas de estilos utilizando SASS, correspondiendo con los cinco componentes anteriormente listados y conteniendo todos los estilos de éstos (Excepto en el caso de App.js, que no tiene estilos propios). Además, existe una hoja adicional index.scss que contiene los estilos de index.js
 
 La maquetación de este ejercicio es libre y para llevarla a cabo se ha tomado en consideración la paleta de colores y diseños generalmente utilizados en la serie.
 
