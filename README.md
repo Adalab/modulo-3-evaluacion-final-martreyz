@@ -44,4 +44,4 @@ Página de detalle de personaje:
 
 ![Página de detalle de personaje](./src/images/readme2.JPG)
 
-@martreyz ![Cat Logo](./src/images/cat-solid.svg)
+@martreyz 🐈
