@@ -5,6 +5,8 @@ Clickando en la tarjeta del personaje deseado podemos acceder a la tarjeta de de
 
 ![gif de Rick y Morty](https://media.giphy.com/media/W0ckhyMhIOxZN55FjW/giphy.gif)
 
+## Código
+
 ### Componentes
 
 Para realizar el ejercicio se han utilizado cinco componentes:
@@ -31,3 +33,9 @@ La maquetación de este ejercicio es libre y para llevarla a cabo se ha tomado e
 
 La carpeta Services contiene al módulo encargado de realizar la petición a la API. Posteriormente este servicio es importado a App.js, donde se guardan en el estado estos resultados.
 Al fetch se le ha añadido un catch para mostrar un mensaje al usuario si ha habido algún problema con la carga de los resultados. Además, se le ha añadido un sistema de loading para los casos de conexión lenta.
+
+## Interfaz
+
+Página principal:
+
+![Página principal](./src/images/readme1.JPG)
