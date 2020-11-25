@@ -1,10 +1,12 @@
 import "../stylesheets/App.scss";
+import Header from "./Header";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
 import CharacterDetail from "./CharacterDetail";
+import Loader from "./Loader";
+import ApiError from "./ApiError";
+import UpButton from "./UpButton";
 import getInfoFromApi from "../services/apiCharacters";
-import logo from "../images/logo.png";
-import loadingGif from "../images/loading2.gif";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
@@ -40,14 +42,7 @@ function App() {
 
   return (
     <>
-      <header id="header" className="header">
-        <img
-          className="header__logo"
-          title="Logo Rick y Morty"
-          alt="Logo Rick y Morty"
-          src={logo}
-        />
-      </header>
+      <Header />
       <main className="main">
         <Switch>
           <Route exact path="/">
@@ -55,30 +50,18 @@ function App() {
               searchValue={searchValue}
               handleInputChange={handleInputChange}
             />
-            {loading ? (
-              <img
-                className="main__loading"
-                src={loadingGif}
-                title="Loading"
-                alt="Loading"
-              />
-            ) : (
-              ""
-            )}
+            {loading ? <Loader /> : null}
             {apiError ? (
-              <p className="main__apiError">
-                Lo sentimos, no se ha podido cargar la lista de personajes. Le
-                rogamos lo intente de nuevo más tarde.
-              </p>
+              <ApiError />
             ) : (
-              <CharacterList
-                searchValue={searchValue}
-                characters={characters}
-              />
+              <>
+                <CharacterList
+                  searchValue={searchValue}
+                  characters={characters}
+                />
+                <UpButton handleBackClick={handleBackClick} />
+              </>
             )}
-            <button onClick={handleBackClick} className="main__backUpwards">
-              Inicio de la página
-            </button>
           </Route>
           <Route
             path="/character/:id"
