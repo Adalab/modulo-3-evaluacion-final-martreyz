@@ -8,10 +8,10 @@ const CharacterList = (props) => {
       character.name.toUpperCase().includes(props.searchValue.toUpperCase())
     )
     .sort((characterA, characterB) => {
-      if (characterA.name > characterB.name) {
+      if (props.checked && characterA.name > characterB.name) {
         return 1;
       }
-      if (characterA.name < characterB.name) {
+      if (props.checked && characterA.name < characterB.name) {
         return -1;
       }
       return 0;

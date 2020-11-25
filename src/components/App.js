@@ -13,6 +13,7 @@ import { Switch, Route } from "react-router-dom";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [checked, setChecked] = useState(false);
   const [apiError, setApiError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -29,6 +30,10 @@ function App() {
 
   const handleInputChange = (inputValue) => {
     setSearchValue(inputValue);
+  };
+
+  const handleCheckboxClick = () => {
+    setChecked(!checked);
   };
 
   const handleBackClick = () => {
@@ -49,6 +54,7 @@ function App() {
             <Filters
               searchValue={searchValue}
               handleInputChange={handleInputChange}
+              handleCheckboxClick={handleCheckboxClick}
             />
             {loading ? <Loader /> : null}
             {apiError ? (
@@ -57,6 +63,7 @@ function App() {
               <>
                 <CharacterList
                   searchValue={searchValue}
+                  checked={checked}
                   characters={characters}
                 />
                 <UpButton handleBackClick={handleBackClick} />

@@ -18,6 +18,10 @@ const Filters = (props) => {
     props.handleInputChange(inputValue);
   };
 
+  const handleCheckboxClick = () => {
+    props.handleCheckboxClick();
+  };
+
   return (
     <form className="main__form">
       <label className="main__form-label" htmlFor="userSearch">
@@ -41,6 +45,16 @@ const Filters = (props) => {
         title="Borrar búsqueda"
         onClick={handleCleanClick}
       />
+      <label>
+        <input
+          className="main__form-cbox"
+          type="checkbox"
+          name="Order Selection"
+          title="Order Selection"
+          onClick={handleCheckboxClick}
+        />
+        Ordenar alfabéticamente
+      </label>
     </form>
   );
 };
