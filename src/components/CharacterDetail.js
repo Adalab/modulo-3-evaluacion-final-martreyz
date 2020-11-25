@@ -29,6 +29,17 @@ const CharacterDetail = (props) => {
           <ul className="main__detail-list">
             <li className="main__detail-listItem">
               Especie: {character.species === "Human" ? " Humana" : " Alien"}
+              {character.type === "Genetic experiment"
+                ? " (Experimento genético)"
+                : character.type === "Superhuman (Ghost trains summoner)"
+                ? " (Superhumano)"
+                : character.type === "Parasite, Cyborg"
+                ? " (Parásito, Cyborg)"
+                : character.type === "Human with antennae"
+                ? " (Humano con antena)"
+                : character.type === "Human with ants in his eyes"
+                ? " (Humano con hormigas en los ojos)"
+                : ""}
               <img
                 className="detail-listItem-imgSpecie"
                 title={
