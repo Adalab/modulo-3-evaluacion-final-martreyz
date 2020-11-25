@@ -1,4 +1,3 @@
-import "../stylesheets/App.scss";
 import Header from "./Header";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
@@ -6,6 +5,7 @@ import CharacterDetail from "./CharacterDetail";
 import Loader from "./Loader";
 import ApiError from "./ApiError";
 import UpButton from "./UpButton";
+import Footer from "./Footer";
 import getInfoFromApi from "../services/apiCharacters";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
@@ -81,6 +81,7 @@ function App() {
           ></Route>
         </Switch>
       </main>
+      <Footer />
     </>
   );
 }
