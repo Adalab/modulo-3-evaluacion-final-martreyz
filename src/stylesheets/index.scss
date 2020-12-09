@@ -11,4 +11,7 @@ body {
   background-repeat: repeat-y;
   background-size: 100%;
   width: 100%;
+  min-height: 100vh;
+  height: auto;
+  position: relative;
 }

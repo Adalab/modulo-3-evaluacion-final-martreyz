@@ -1,8 +1,11 @@
 .footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #fefd7c;
   padding: 10px 50px;
+  position: absolute;
+  bottom: -40px;
   &__text {
     margin-right: 5px;
     color: #006678;
