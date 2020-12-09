@@ -1,4 +1,3 @@
-import "../stylesheets/App.scss";
 import Header from "./Header";
 import CharacterList from "./CharacterList";
 import Filters from "./Filters";
